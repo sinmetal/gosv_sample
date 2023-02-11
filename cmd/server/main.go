@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	metadatabox "github.com/sinmetalcraft/gcpbox/metadata"
 )
 
 func main() {
@@ -30,11 +32,14 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	runRevision := os.Getenv("K_REVISION")
 	if runRevision != "" {
-		fmt.Fprintf(w, "Cloud Run Revision %s\n", runRevision)
+		fmt.Fprintf(w, "Cloud Run Revision: %s\n", runRevision)
 	}
 
-	instanceID := os.Getenv("INSTANCE_ID")
+	instanceID, err := metadatabox.InstanceID()
+	if err != nil {
+		fmt.Printf("failed metadatabox.InstanceID() err=%s", err)
+	}
 	if instanceID != "" {
-		fmt.Fprintf(w, "Instance ID %s\n", runRevision)
+		fmt.Fprintf(w, "Instance ID: %s\n", instanceID)
 	}
 }
