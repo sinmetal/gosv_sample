@@ -31,5 +31,6 @@ steps:
       - --concurrency=80
       - --execution-environment=gen1
       - --cpu-throttling
+      - --allow-unauthenticated
       - --tag=$BRANCH_NAME
       - --image=asia-northeast1-docker.pkg.dev/$PROJECT_ID/gosv-sample/main:$BRANCH_NAME
