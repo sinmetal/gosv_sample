@@ -9,3 +9,27 @@ steps:
       - --destination=asia-northeast1-docker.pkg.dev/$PROJECT_ID/gosv-sample/main:$COMMIT_SHA
       - --cache=true
       - --cache-ttl=6h
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
+    entrypoint: 'gcloud'
+    args:
+      - storage
+      - cp
+      - app
+      - gs://gosv-sample-sinmetal-bin/app
+  # deploy to cloud run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
+    entrypoint: 'gcloud'
+    args:
+      - run
+      - deploy
+      - gosv-sample
+      - --region=asia-northeast1
+      - --platform=managed
+      - --max-instances=1
+      - --cpu=1
+      - --memory=128Mi
+      - --concurrency=80
+      - --execution-environment=gen1
+      - --cpu-throttling
+      - --tag=$BRANCH_NAME
+      - --image=asia-northeast1-docker.pkg.dev/$PROJECT_ID/gosv-sample/main:$BRANCH_NAME
