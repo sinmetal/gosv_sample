@@ -26,9 +26,15 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	name := os.Getenv("NAME")
-	if name == "" {
-		name = "World"
+	fmt.Fprintf(w, "Hello\n")
+
+	runRevision := os.Getenv("K_REVISION")
+	if runRevision != "" {
+		fmt.Fprintf(w, "Cloud Run Revision %s\n", runRevision)
 	}
-	fmt.Fprintf(w, "Hello %s!\n", name)
+
+	instanceID := os.Getenv("INSTANCE_ID")
+	if instanceID != "" {
+		fmt.Fprintf(w, "Instance ID %s\n", runRevision)
+	}
 }
