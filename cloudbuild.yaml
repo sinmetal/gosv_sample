@@ -2,7 +2,7 @@ steps:
   - name: 'golang:1.19-bullseye'
     entrypoint: 'go'
     args: ['build', '-o', 'app', './cmd/server']
-    env: ['GO111MODULE=on']
+    env: ['CGO_ENABLED=0']
   - name: 'gcr.io/kaniko-project/executor:v1.9.1'
     args:
       - --destination=asia-northeast1-docker.pkg.dev/$PROJECT_ID/gosv-sample/main:$BRANCH_NAME
