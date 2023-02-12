@@ -1,0 +1,6 @@
+cloud.google.com/go/compute v1.18.0 h1:FEigFqoDbys2cvFkZ9Fjq4gnHBP55anJ0yQyau2f9oY=
+cloud.google.com/go/compute v1.18.0/go.mod h1:1X7yHxec2Ga+Ss6jPyjxRxpu2uu7PLgsOVXvgU0yacs=
+cloud.google.com/go/compute/metadata v0.2.3 h1:mg4jlk7mCAj6xXp9UJ4fjI9VUI5rubuGBW5aJ7UnBMY=
+cloud.google.com/go/compute/metadata v0.2.3/go.mod h1:VAV5nSsACxMJvgaAuX6Pk2AawlZn8kiOGuCv6gTkwuA=
+github.com/sinmetalcraft/gcpbox v1.20.0 h1:nIHPXYu0TMru7cgWGdOLfOLAZHVe5dyQ+BkM/rrwOG8=
+github.com/sinmetalcraft/gcpbox v1.20.0/go.mod h1:5ABCKnIRRMunB3fZt3nIYv+lVmXJ919qHtZ59So2rIc=
