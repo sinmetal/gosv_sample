@@ -28,7 +28,7 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello\n")
+	fmt.Fprintf(w, "こんにちは\n")
 
 	runRevision := os.Getenv("K_REVISION")
 	if runRevision != "" {
